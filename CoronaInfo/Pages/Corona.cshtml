@@ -1,0 +1,62 @@
+﻿@page
+@model CoronaInfo.Pages.CoronaModel
+@{
+    ViewData["Title"] = "Koronavirus u Hrvatskoj";
+}
+    <center><h1>Koronavirus u Hrvatskoj</h1></center>
+    <center>
+        <h2>Svijet</h2>
+        <table class="styled-table2">
+            <thead>
+                <tr>
+                    <th scope="col">Ukupni slučajevi</th>
+                    <th scope="col">Ukupne smrti</th>
+                    <th scope="col">Oporavljeni</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>@Model.globalData.Cases.ToString(("N0"))</td>
+                <td>@Model.globalData.Deaths.ToString(("N0"))</td>
+                <td>@Model.globalData.Recovered.ToString(("N0"))</td>
+            </tr>
+        </table>
+    </center>
+    <center>
+        <h2>Hrvatska</h2>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th scope="col">Novozaraženi</th>
+                    <th scope="col">Danas umrli</th>
+                    <th scope="col">Na respiratoru</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>@Model.countryData.TodayCases.ToString(("N0"))</td>
+                <td>@Model.countryData.TodayDeaths.ToString(("N0"))</td>
+                <td>@Model.countryData.Critical.ToString(("N0"))</td>
+            </tr>
+        </table>
+        <table class="styled-table2">
+            <thead>
+                <tr>
+                    <th scope="col">Ukupni slučajevi</th>
+                    <th scope="col">Ukupne smrti</th>
+                    <th scope="col">Oporavljeni</th>
+                    <th scope="col">Ukupno testirani</th>
+                    <th scope="col">Aktivni sučajevi</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>@Model.countryData.Cases.ToString(("N0"))</td>
+                <td>@Model.countryData.Deaths.ToString(("N0"))</td>
+                <td>@Model.countryData.Recovered.ToString(("N0"))</td>
+                <td>@Model.countryData.TotalTests.ToString(("N0"))</td>
+                <td>@Model.countryData.Active.ToString(("N0"))</td>
+            </tr>
+        </table>
+    </center>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
